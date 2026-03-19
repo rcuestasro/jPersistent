@@ -1,0 +1,35 @@
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb_server
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: rafa  # Canvia-ho per una contrasenya segura
+      MARIADB_DATABASE: la_meva_bd
+      MARIADB_USER: rafa
+      MARIADB_PASSWORD: rafa
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - xarxa_bd
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: pma_interficie
+    restart: always
+    depends_on:
+      - mariadb
+    environment:
+      PMA_HOST: mariadb_server
+      PMA_ARBITRARY: 1
+    ports:
+      - "8080:80"
+    networks:
+      - xarxa_bd
+
+networks:
+  xarxa_bd:
+    driver: bridge
+
+volumes:
+  db_data:
