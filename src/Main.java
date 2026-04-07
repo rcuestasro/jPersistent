@@ -2,11 +2,13 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class Main {
-    public static void mainHolaMunodo(String[] args) {
+    static String url     = "jdbc:mysql://localhost:3306/la_meva_bd?useSSL=false&serverTimezone=UTC";
+    static String usuari  = "rafa";
+    static String password = "rafa";
 
-        String url = "jdbc:mysql://localhost:3306/la_meva_bd?useSSL=false&serverTimezone=UTC";
-        String usuari = "rafa";
-        String password = "rafa";
+
+    public static void mainHolaMundo(String[] args) {
+
 
         try {
             // Connectar
@@ -32,9 +34,6 @@ public class Main {
             System.out.println("❌ Error: " + e.getMessage());
         }
     }
-    static String url     = "jdbc:mysql://localhost:3306/la_meva_bd?useSSL=false&serverTimezone=UTC";
-    static String usuari  = "rafa";
-    static String password = "rafa";
 
     /*
     * CREATE TABLE alumnes (
