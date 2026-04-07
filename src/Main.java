@@ -107,7 +107,7 @@ public class Main {
             }
 
         } catch (SQLException e) {
-            System.out.println("❌ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -121,10 +121,10 @@ public class Main {
             ps.setString(1, nom);
             ps.setString(2, cicle);
             ps.executeUpdate();
-            System.out.println("✅ Alumne afegit correctament!");
+            System.out.println("Alumne afegit correctament!");
 
         } catch (SQLException e) {
-            System.out.println("❌ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -140,11 +140,11 @@ public class Main {
             ps.setInt(3, id);
             int files = ps.executeUpdate();
 
-            if (files > 0) System.out.println("✅ Alumne actualitzat correctament!");
-            else           System.out.println("⚠️ No s'ha trobat cap alumne amb id " + id);
+            if (files > 0) System.out.println("Alumne actualitzat correctament!");
+            else           System.out.println("No s'ha trobat cap alumne amb id " + id);
 
         } catch (SQLException e) {
-            System.out.println("❌ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
@@ -158,11 +158,11 @@ public class Main {
             ps.setInt(1, id);
             int files = ps.executeUpdate();
 
-            if (files > 0) System.out.println("✅ Alumne eliminat correctament!");
-            else           System.out.println("⚠️ No s'ha trobat cap alumne amb id " + id);
+            if (files > 0) System.out.println("Alumne eliminat correctament!");
+            else           System.out.println("No s'ha trobat cap alumne amb id " + id);
 
         } catch (SQLException e) {
-            System.out.println("❌ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 }
