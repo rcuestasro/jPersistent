@@ -13,7 +13,7 @@ public class Main {
         try {
             // Connectar
             Connection con = DriverManager.getConnection(url, usuari, password);
-            System.out.println("✅ Connexió exitosa!");
+            System.out.println("Connexió exitosa!");
 
             // Consultar
             Statement st = con.createStatement();
@@ -31,7 +31,7 @@ public class Main {
             con.close();
 
         } catch (SQLException e) {
-            System.out.println("❌ Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 
