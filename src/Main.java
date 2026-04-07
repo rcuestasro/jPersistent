@@ -1,13 +1,34 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+import java.sql.*;
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+public class Main {
+    public static void main(String[] args) {
+
+        String url      = "jdbc:mysql://localhost:3306/la_meva_bd?useSSL=false&serverTimezone=UTC";
+        String usuari   = "rafa";
+        String password = "rafa";
+
+        try {
+            // Connectar
+            Connection con = DriverManager.getConnection(url, usuari, password);
+            System.out.println("✅ Connexió exitosa!");
+
+            // Consultar
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM alumnes");
+
+            while (rs.next()) {
+                System.out.println(rs.getInt("id") + " | " +
+                        rs.getString("nom") + " | " +
+                        rs.getString("cicle"));
+            }
+
+            // Tancar
+            rs.close();
+            st.close();
+            con.close();
+
+        } catch (SQLException e) {
+            System.out.println("❌ Error: " + e.getMessage());
+        }
     }
 }
